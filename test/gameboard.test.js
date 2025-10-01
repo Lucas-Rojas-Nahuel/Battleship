@@ -6,19 +6,20 @@ describe("Gameboard", () => {
     const board = new Gameboard();
     const ship = new Ship(3);
     board.placeShip(ship, [0, 0], "horizontal");
+
     // debería ocupar (0,0), (1,0), (2,0)
-    expect(board.getCell([0, 0])).toBe(ship);
-    expect(board.getCell([1, 0])).toBe(ship);
-    expect(board.getCell([2, 0])).toBe(ship);
+    expect(board.board["0,0"]).toBe(ship);
+    expect(board.board["1,0"]).toBe(ship);
+    expect(board.board["2,0"]).toBe(ship);
   });
 
   test("coloca un barco verticalmente en el tablero", () => {
     const board = new Gameboard();
-    const ship = new Ship(3);
+    const ship = new Ship(2);
     board.placeShip(ship, [3, 3], "vertical");
 
-    expect(board.getCell([3, 3])).toBe(ship);
-    expect(board.getCell([3, 4])).toBe(ship);
+    expect(board.board["3,3"]).toBe(ship);
+    expect(board.board["3,4"]).toBe(ship);
   });
 
   test("no permite colocar un barco fuera del tablero", () => {
@@ -26,7 +27,7 @@ describe("Gameboard", () => {
     const ship = new Ship(4);
     expect(() => {
       board.placeShip(ship, [8, 0], "horizontal");
-    }).toBe("Invalid placement");
+    }).toThrow("Invalid placement");
   });
 
   test("no permite superponer barcos", () => {
