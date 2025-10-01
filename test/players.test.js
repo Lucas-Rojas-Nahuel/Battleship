@@ -2,7 +2,7 @@ import { Ship } from "../src/ships/ship";
 import { Gameboard } from "../src/gameboard/gameboard";
 import { Player } from "../src/players/player";
 
-decribe("Player", () => {
+describe("Player", () => {
   test("el jugador humano puede atacar al jugador enemigo", () => {
     const player = new Player("human");
     const enemyBoard = new Gameboard();
