@@ -7,7 +7,8 @@ export class Player {
   }
 
   attack(enemyBoard, coord) {
-    enemyBoard.receiveAttack(coord);
+    const shop = enemyBoard.receiveAttack(coord);
+    return shop;
   }
 
   randomAttack(enemyBoard) {
@@ -20,7 +21,9 @@ export class Player {
     } while (this.attackedCoords.has(coordKey));
 
     this.attackedCoords.add(coordKey);
-    enemyBoard.receiveAttack(coord);
-    return coord;
+
+    let shot = enemyBoard.receiveAttack(coord);
+
+    return {coord, shot};
   }
 }
