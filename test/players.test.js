@@ -18,10 +18,10 @@ describe("Player", () => {
     const enemyBoard = new Gameboard();
 
     const coord = computer.randomAttack(enemyBoard);
-    expect(coord[0]).toBeGreaterThanOrEqual(0);
-    expect(coord[0]).toBeLessThan(10);
-    expect(coord[1]).toBeGreaterThanOrEqual(0);
-    expect(coord[1]).toBeLessThan(10);
+    expect(coord.coord[0]).toBeGreaterThanOrEqual(0);
+    expect(coord.coord[0]).toBeLessThan(10);
+    expect(coord.coord[1]).toBeGreaterThanOrEqual(0);
+    expect(coord.coord[1]).toBeLessThan(10);
   });
 
   test("la computadora no repite ataques", () => {
