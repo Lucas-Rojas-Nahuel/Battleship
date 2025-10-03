@@ -51,7 +51,7 @@ describe("Gameboard", () => {
   test("recibir un ataque vacío se registra como miss", () => {
     const board = new Gameboard();
     board.receiveAttack([5, 5]);
-    expect(board.misses).toContainEqual([5, 5]);
+    expect(board.misses).toContainEqual("5,5");
   });
 
   test("no permite atacar la misma celda dos veces", () => {
